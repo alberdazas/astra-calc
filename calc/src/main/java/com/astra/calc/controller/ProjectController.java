@@ -52,7 +52,6 @@ public class ProjectController {
         return "/projects/project-form";
     }
 
-
     @GetMapping("/deleteForm")
     public String deleteForm(@RequestParam("projectId") int id) {
         projectService.deleteById(id);
