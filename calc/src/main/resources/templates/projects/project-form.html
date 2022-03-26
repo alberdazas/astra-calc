@@ -15,6 +15,7 @@
 <br>
     <p class="h4 mb-4">Save project</p>
     <form action="#" th:action="@{/projects/save}" th:object="${project}" method="post">
+<!--        add hidden form for field to handel update-->
         <input type="text" th:field="*{id}" class="form-control mb-4 col-4" placeholder="Project ID">
         <input type="text" th:field="*{materialsCost}" class="form-control mb-4 col-4" placeholder="Materials">
         <input type="text" th:field="*{transportCost}" class="form-control mb-4 col-4" placeholder="Transport cost">

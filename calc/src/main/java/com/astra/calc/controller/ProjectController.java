@@ -5,10 +5,7 @@ import com.astra.calc.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -45,5 +42,19 @@ public class ProjectController {
         return "redirect:/projects/list";
     }
 
+    @GetMapping("/showFormForUpdate")
+    public String showFormForUpdate(@RequestParam("projectId") int id, Model model) {
+//        get project from service
+        Project project = projectService.findById(id);
+//        get project as model attribute to repopulate form
+        model.addAttribute("project", project);
+//        send to our form
+        return "/projects/project-form";
+    }
 
+    @GetMapping("/deleteForm")
+    public String deleteForm(@RequestParam("projectId") int id) {
+        projectService.deleteById(id);
+        return "redirect:/projects/list";
+    }
 }

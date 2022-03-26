@@ -27,6 +27,7 @@
             <th>Manufacturing cost</th>
             <th>Price DAP</th>
             <th>Price per hour</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -39,6 +40,14 @@
             <td th:text="${project.manufacturingCost}"></td>
             <td th:text="${project.priceDAP}"></td>
             <td th:text="${project.pricePerHour}"></td>
+<!--            add update button-->
+            <td>
+                <a th:href="@{/projects/showFormForUpdate(projectId=${project.id})}"
+                    class="btn btn-info">Update</a>
+                <a th:href="@{/projects/deleteForm(projectId=${project.id})}"
+                   class="btn btn-danger"
+                    onclick="if(!(confirm('Are you sure u want to delete this Project?'))) return false">Delete</a>
+            </td>
         </tr>
         </tbody>
     </table>
