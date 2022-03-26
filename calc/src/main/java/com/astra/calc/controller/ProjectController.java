@@ -24,6 +24,15 @@ public class ProjectController {
     public String listProjects(Model model) {
         List<Project> projectList = projectService.findAll();
         model.addAttribute("projects", projectList);
-        return "list-projects";
+        return "projects/list-projects";
+    }
+
+    @GetMapping("/showFormForAdd")
+    public String showFormForAdd(Model model){
+//        create model attribute to bind form data
+        Project project = new Project();
+        model.addAttribute("project", project);
+
+        return "projects/project-form";
     }
 }

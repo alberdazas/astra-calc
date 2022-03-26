@@ -3,7 +3,7 @@ package com.astra.calc.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "project$git i")
+@Table(name = "project")
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
