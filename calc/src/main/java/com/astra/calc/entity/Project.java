@@ -34,15 +34,15 @@ public class Project {
     public Project() {
     }
 
-    public Project(int id, double materialsCost, double transportCost, int workHours, double anotherCost, double priceDAP) {
+    public Project(int id, double materialsCost, double transportCost, int workHours, double anotherCost, double priceDAP, double manufacturingCost, double pricePerHour) {
         this.id = id;
         this.materialsCost = materialsCost;
         this.transportCost = transportCost;
         this.workHours = workHours;
         this.anotherCost = anotherCost;
         this.priceDAP = priceDAP;
-        this.manufacturingCost = priceDAP-materialsCost-transportCost-anotherCost;
-        this.pricePerHour = manufacturingCost/workHours;
+        this.manufacturingCost = manufacturingCost;
+        this.pricePerHour = pricePerHour;
     }
 
     public int getId() {

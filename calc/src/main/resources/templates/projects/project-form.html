@@ -14,16 +14,20 @@
     <h3>Project directory</h3>
 <br>
     <p class="h4 mb-4">Save project</p>
-    <form action="#" th:action="@{project/save}" th:object="${project}" method="post">
+    <form action="#" th:action="@{/projects/save}" th:object="${project}" method="post">
         <input type="text" th:field="*{id}" class="form-control mb-4 col-4" placeholder="Project ID">
         <input type="text" th:field="*{materialsCost}" class="form-control mb-4 col-4" placeholder="Materials">
         <input type="text" th:field="*{transportCost}" class="form-control mb-4 col-4" placeholder="Transport cost">
         <input type="text" th:field="*{workHours}" class="form-control mb-4 col-4" placeholder="Work hours">
         <input type="text" th:field="*{anotherCost}" class="form-control mb-4 col-4" placeholder="Another cost">
         <input type="text" th:field="*{priceDAP}" class="form-control mb-4 col-4" placeholder="Price DAP">
+        <input type="text" th:field="*{manufacturingCost}" class="form-control mb-4 col-4" placeholder="Manufacturing cost">
+        <input type="text" th:field="*{pricePerHour}" class="form-control mb-4 col-4" placeholder="Price per hour">
 
-        <button type="submit" class="btn btn-info col-2"> Save</button>
+        <button type="submit" class="btn btn-info col-2">Save</button>
     </form>
+    <hr>
+    <a th:href="@{/projects/list}">Back to projects list</a>
 </div>
 </body>
 </html>

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -32,7 +34,14 @@ public class ProjectController {
 //        create model attribute to bind form data
         Project project = new Project();
         model.addAttribute("project", project);
-
         return "projects/project-form";
+    }
+
+    @PostMapping("/save")
+    public String saveProject(@ModelAttribute ("project") Project project){
+//        save project
+        projectService.save(project);
+//        redirect to prevent duplicate submissions
+        return "redirect:/projects/list";
     }
 }
