@@ -44,4 +44,6 @@ public class ProjectController {
 //        redirect to prevent duplicate submissions
         return "redirect:/projects/list";
     }
+
+
 }
